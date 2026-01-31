@@ -1,0 +1,122 @@
+{
+  "TOP": {
+    "LEFT": {
+      "WEB": {
+        "showIcons": true,
+        "items": [
+          { "name": "Google", "url": "https://www.google.com/", "icon": "svg/google.svg" },
+          { "name": "Google Maps", "url": "https://maps.google.com/", "icon": "svg/GoogleMaps.svg" },
+          { "name": "YouTube", "url": "https://www.youtube.com/", "icon": "svg/YouTube.svg" },
+          { "name": "Reddit", "url": "https://www.reddit.com/", "icon": "svg/reddit.svg" }
+        ]
+      },
+      "COM": {
+        "showIcons": true,
+        "items": [
+          { "name": "Gmail", "url": "https://mail.google.com/", "icon": "svg/gmail_logo_new.svg" },
+          { "name": "Facebook", "url": "https://www.facebook.com/", "icon": "svg/facebook.svg" },
+          { "name": "Messenger", "url": "https://www.messenger.com/", "icon": "svg/messenger.svg" },
+          { "name": "WhatsApp Web", "url": "https://web.whatsapp.com/", "icon": "svg/whatsapp.svg" },
+          { 
+            "name": "Discord"
+            ,"url": "gremdesk://discord"
+            ,"urlRight": "https://docs.google.com/document/u/0/"
+            ,"icon": "svg/Discord.svg"
+            ,"desc": "Right-click: Desktop"
+          }
+        ]
+      },
+      "WRK": {
+        "showIcons": true,
+        "items": [
+          { "name": "Notion", "url": "https://www.notion.so/", "icon": "svg/notion.svg" },
+          {
+            "name": "Drive",
+            "icon": "svg/drive.svg",
+            "showIcons": false,
+            "items": [
+              { "name": "Docs", "url": "https://docs.google.com/", "icon": "svg/docs.svg" },
+              { "name": "Sheets", "url": "https://sheets.google.com/", "icon": "svg/sheets.svg" }
+            ]
+          },
+          {
+            "name": "Projects",
+            "icon": "svg/kanban.svg",
+            "items": [
+              { "name": "Jira", "url": "https://www.atlassian.com/software/jira", "icon": "svg/Jira_logo.svg" },
+              { "name": "GitHub", "url": "https://github.com/", "icon": "svg/github.svg" }
+            ]
+          }
+        ]
+      },
+      "UTL": {
+        "showIcons": true,
+        "items": [
+          { "name": "ChatGPT", "url": "https://chat.openai.com/", "icon": "svg/ChatGPT.svg" },
+          { "name": "Grok", "url": "https://grok.com/", "icon": "svg/Grok_logo.svg" },
+          {
+            "name": "Utilities",
+            "icon": "svg/gear.svg",
+            "items": [
+              { "name": "Speedtest", "url": "https://www.speedtest.net/", "icon": "svg/speedtest.svg" },
+              { "name": "Calendar", "url": "https://calendar.google.com/", "icon": "svg/calendar.svg" }
+            ]
+          },
+          { "name": "tldraw (Ctrl)", "ctrlHide": true, "url": "https://www.tldraw.com/", "icon": "svg/tldraw.svg" },
+          { "name": "Text Compare (Ctrl)", "ctrlHide": true, "url": "https://text-compare.com/", "icon": "svg/TextCompare.svg" }
+        ]
+      },
+      "LNK": {
+        "showIcons": false,
+        "items": [
+          { "name": "This PC", "url": "gremdesk://explorer", "desc": "Explorer root" },
+          { "name": "Downloads", "url": "gremdesk://explorer/downloads" },
+          { "name": "Documents", "url": "gremdesk://explorer/documents" },
+          { "name": "Pictures", "url": "gremdesk://explorer/pictures" },
+          { "name": "GremDesk Folder", "url": "gremdesk://explorer/gremdesk" }
+        ]
+      },
+      "ADM": {
+        "showIcons": true,
+        "hidden": "admin",
+        "items": [
+          {
+            "name": "Local Tools (example)",
+            "icon": "svg/terminal.svg",
+            "items": [
+              { "name": "Search (Everything)", "url": "gremdesk://everything", "icon": "svg/everything_icon.svg" },
+              { "name": "Text Editor", "url": "gremdesk://sublime", "icon": "svg/SublimeText_logo.svg" }
+            ]
+          },
+          {
+            "name": "Downloaders (example)",
+            "icon": "svg/ytdlp.svg",
+            "items": [
+              { "name": "YT-DLP: Video + Audio", "url": "gremdesk://ytdlp/video", "icon": "svg/video.svg" },
+              { "name": "YT-DLP: Audio Only", "url": "gremdesk://ytdlp/audio", "icon": "svg/audio.svg" },
+              { "name": "4chan Downloader", "url": "gremdesk://4chan", "icon": "svg/4chan.svg" }
+            ]
+          },
+          {
+            "name": "Display Presets (example)",
+            "icon": "svg/SetRes.svg",
+            "items": [
+              { "name": "4K Mode", "url": "gremdesk://4k_mode", "icon": "svg/4k.svg" },
+              { "name": "Gaming Mode", "url": "gremdesk://gaming_mode", "icon": "svg/gaming.svg" }
+            ]
+          }
+        ]
+      }
+    },
+    "RIGHT": {
+      "SYS": {
+        "showIcons": true,
+        "items": [
+          { "name": "Refresh Wallpaper", "action": "setWallpaper", "icon": "svg/refresh.svg" },
+          { "name": "Admin Mode", "action": "toggleAdminMode", "icon": "svg/key2.svg" },
+          { "name": "About", "action": "showAbout", "icon": "svg/info.svg" }
+        ]
+      }
+    }
+  }
+}

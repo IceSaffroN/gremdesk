@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "GremDesk New Tab (Minimal)",
+  "version": "1.0.0",
+  "description": "Overrides New Tab and redirects immediately to GremDesk.",
+  "permissions": ["tabs"],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}

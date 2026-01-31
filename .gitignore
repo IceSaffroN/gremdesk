@@ -1,0 +1,24 @@
+# Local user config
+links.json
+
+# Backups and archives
+archive/
+*.bak
+*.zip
+
+# Ignore optional Admin assets
+wallpapers-admin/
+
+# Ignore all wallpapers
+wallpapers/*
+
+# And keep only the example wallpapers
+!wallpapers/example_wallpaper_1.webp
+!wallpapers/example_wallpaper_2.webp
+!wallpapers/example_wallpaper_3.webp
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+icon.ico

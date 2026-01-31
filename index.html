@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- PREVENT FOUC / WHITE FLASH -->
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #1e1e1e;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝓖 𝓡 𝓔 𝓜 𝓓 𝓔 𝓢 𝓚</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="svg/GremDesk3.svg">
+  <script defer src="js/wallpaper.js"></script>
+  <script defer src="js/modals.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/core.js"></script>
+  <script defer src="js/logger.js"></script>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar"><!-- populated by script.js & links.json --></div>
+
+  <!-- UNIVERSAL MODAL -->
+  <div id="gdModalOverlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-title" id="gdModalTitle"></div>
+      <div class="modal-body" id="gdModalBody"></div>
+      <div class="modal-actions" id="gdModalActions"></div>
+      <div class="modal-hint" id="gdModalHint" style="display:none;"></div>
+    </div>
+  </div>
+</body>
+</html>

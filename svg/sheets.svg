@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="256" height="256" version="1.1" viewBox="0 0 256 256">
+  <!-- Generator: Adobe Illustrator 29.8.4, SVG Export Plug-In . SVG Version: 2.1.1 Build 6)  -->
+  <g>
+    <rect x="133.82" y="183.27" width="29.09" height="14.55" fill="#fff"/>
+    <rect x="133.82" y="160" width="29.09" height="14.55" fill="#fff"/>
+    <rect x="133.82" y="136.73" width="29.09" height="14.55" fill="#fff"/>
+    <rect x="93.09" y="136.73" width="29.09" height="14.55" fill="#fff"/>
+    <rect x="93.09" y="160" width="29.09" height="14.55" fill="#fff"/>
+    <rect x="93.09" y="183.27" width="29.09" height="14.55" fill="#fff"/>
+  </g>
+  <path d="M168.73,69.82c-9.64,0-17.45-7.81-17.45-17.45V0H52.36C42.76,0,34.91,7.85,34.91,17.45v221.09c0,9.6,7.85,17.45,17.45,17.45h151.27c9.6,0,17.45-7.85,17.45-17.45V69.82h0s-52.36,0-52.36,0ZM174.55,209.45h-93.09v-84.36h93.09v84.36Z" fill="#fff"/>
+  <path id="Path" d="M151.27,0v52.36c0,9.64,7.81,17.45,17.45,17.45h52.36L151.27,0Z" fill="#fff" opacity=".8"/>
+</svg>

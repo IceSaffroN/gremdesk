@@ -1,0 +1,362 @@
+/* ========== BASE ========== */
+:root {
+  --bg: #1e1e1e;
+  --fg: #fff; /* #eee */
+  --hover: #444;
+  --accent: #00bfff;
+  --menu-icon-size: 32px;
+
+  --icon-tile-bg: rgba(40,40,40,0.95);
+  --icon-tile-border: rgba(255,255,255,0.12);
+  --icon-tile-radius: 5px;
+  --icon-tile-size: 90%;
+
+  --icon-glyph-color: currentColor;
+  --icon-glyph-color-hover: #ffffff; /* currentColor; */ /* #ffffff; */
+
+  --icon-tile-bg-hover: var(--accent);
+}
+
+html { background-color: var(--bg); }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+}
+
+/* ========== TOP BAR ========== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: rgba(40, 40, 40, 0.7);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+  z-index: 1000;
+}
+
+.topbar .top-left,
+.topbar .top-right {
+  display: flex;
+  gap: 20px;
+}
+
+.menu {
+  position: relative;
+}
+
+.menu-header {
+  cursor: pointer;
+  padding: 6px 8px;
+  font-weight: bold;
+  color: var(--fg);
+  transition: color 0.2s ease;
+}
+
+.menu-header:hover {
+  color: var(--accent);
+}
+
+.menu-row {
+  transition: background 0.08s ease, color 0.08s ease;
+}
+
+.menu-row:hover {
+  background: var(--hover);
+  color: var(--accent);
+}
+
+.menu-row:hover .menu-icon {
+  opacity: 1;
+  filter: drop-shadow(0 0 2px var(--accent));
+}
+
+.menu-row:hover .menu-icon--tile {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.10);
+}
+
+/* svg2 tile: white on blue hover */
+/*.menu-row:hover .menu-icon--tile { background: var(--accent); }
+.menu-row:hover .menu-iconGlyph { background: #fff; }*/
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: rgba(30,30,30,0.95);
+  border: 1px solid rgba(255,255,255,0.1);
+  min-width: 200px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  color: var(--fg);
+  text-decoration: none;
+  background: transparent;
+}
+
+/* Prevent purple visited links, but DO NOT override hover color */
+.dropdown a:visited:not(:hover) {
+  color: var(--fg);
+}
+
+/* Ensure hover always wins inside dropdowns (including visited/# links) */
+.dropdown a.menu-row:hover {
+  background: var(--hover);
+  color: var(--accent);
+}
+
+.menu:hover > .dropdown,
+.menu:has(> .dropdown:hover) > .dropdown { display: flex; }
+
+.menu-icon {
+  width: var(--menu-icon-size);
+  height: var(--menu-icon-size);
+  opacity: 0.85;
+  margin-right: 6px;
+  vertical-align: middle;
+  transform: translateY(-1px);
+}
+
+.menu-icon--mask {
+  display: inline-block;
+  width: var(--menu-icon-size);
+  height: var(--menu-icon-size);
+
+  background: currentColor;
+
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+
+  mask-image: var(--icon-url);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.dropdown a:hover .menu-icon {
+  opacity: 1;
+  filter: drop-shadow(0 0 2px var(--accent));
+}
+
+.top-right .menu .dropdown {
+  left: auto;
+  right: 0;
+}
+
+/* ========== SUBMENUS ========== */
+.submenu {
+  position: relative;
+}
+
+.submenu-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  color: var(--fg);
+  cursor: pointer;
+  user-select: none;
+  
+}
+
+.submenu-chevron {
+  margin-left: auto;
+  opacity: 0.75;
+}
+
+/* show nested dropdown on hover */
+.submenu:hover > .submenu-dropdown,
+.submenu:has(.submenu-dropdown:hover) > .submenu-dropdown {
+  display: flex;
+}
+
+/* position nested dropdown to the right */
+.submenu-dropdown {
+  left: calc(100%); 
+  top: -1px;
+}
+
+/* Right-side menus: nested submenus open to the LEFT */
+.top-right .menu .submenu-dropdown {
+  left: auto !important;
+  right: calc(100%) !important;
+}
+
+/* Submenus that include icon columns need a left correction */
+.submenu--icons > .submenu-dropdown {
+  margin-left: -0px; /* match your .menu-icon width */
+}
+
+/* ========== ADMIN ========== */
+.menu.hidden-admin{
+  display: none;
+}
+
+/* Admin item hidden by default */
+.menu-row.admin-only {
+  display: none;
+}
+
+/* Reveal Admin item when Ctrl is held */
+body.ctrl-held .menu-row.admin-only {
+  display: flex !important;
+}
+
+body .menu-row.ctrl-hide { display: none; }
+body.ctrl-held .menu-row.ctrl-hide { display: flex; }
+
+/* ========== QR OVERLAY ========== */
+.qr-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);
+}
+
+.qr-overlay.hidden { display: none; }
+
+.qr-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+
+  padding: 18px 18px 14px 18px;
+  border-radius: 14px;
+  background: rgba(25,25,25,0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+
+  min-width: 260px;
+}
+
+.qr-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.qr-img {
+  width: 260px;
+  height: 260px;
+  image-rendering: crisp-edges;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+}
+
+.qr-hint {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ========== MODAL (shared) ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);
+}
+
+.modal-overlay.hidden { display: none; }
+
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+
+  padding: 18px 18px 14px 18px;
+  border-radius: 14px;
+  background: rgba(25,25,25,0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+
+  min-width: 320px;
+  max-width: 520px;
+}
+
+.modal-title { font-size: 14px; font-weight: bold; }
+.modal-body { font-size: 12px; opacity: 0.95; text-align: center; }
+.modal-hint { font-size: 12px; opacity: 0.85; }
+
+.menu-desc {
+  opacity: 0.7;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-desc-sep {
+  opacity: 0.5;
+  margin: 0 2px;
+}
+
+/* Prevent menu rows from wrapping */
+.dropdown a {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+/* Keep name+desc on one line; truncate the desc if needed */
+.dropdown a span { white-space: nowrap; }
+
+/* v2 tile icon wrapper (lives where .menu-icon used to be) */
+.menu-icon--tile {
+  width: var(--menu-icon-size);
+  height: var(--menu-icon-size);
+
+  display: grid;
+  place-items: center;
+
+  background: var(--icon-tile-bg);
+  border: 1px solid var(--icon-tile-border);
+  border-radius: var(--icon-tile-radius);
+
+  opacity: 0.95;
+}
+
+/* v2 glyph layer */
+.menu-iconGlyph {
+  width: var(--icon-tile-size);
+  height: var(--icon-tile-size);
+
+  background: var(--icon-glyph-color);
+
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
