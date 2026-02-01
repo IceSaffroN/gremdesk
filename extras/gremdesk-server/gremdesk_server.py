@@ -81,9 +81,37 @@ class GremDeskHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(payload)
 
+def find_repo_root(start_dir: str) -> str:
+    """
+    Walk upward from start_dir until we find a repo marker.
+    Markers: index.html OR README.md OR .git folder.
+    """
+    cur = os.path.abspath(start_dir)
+    while True:
+        if (
+            os.path.isfile(os.path.join(cur, "index.html"))
+            or os.path.isfile(os.path.join(cur, "README.md"))
+            or os.path.isdir(os.path.join(cur, ".git"))
+        ):
+            return cur
+
+        parent = os.path.dirname(cur)
+        if parent == cur:
+            raise RuntimeError(
+                "Could not find GremDesk repo root (no index.html, README.md, or .git found above)."
+            )
+        cur = parent
+
 if __name__ == "__main__":
-    # Move up two levels to C:\Gremster\GremDesk
-    os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+    # Serve from repo root no matter where this script lives
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = find_repo_root(script_dir)
+    os.chdir(repo_root)
+
+    httpd = ThreadingHTTPServer(("0.0.0.0", PORT), GremDeskHandler)
+    print(f"GremDesk server running on http://localhost:{PORT}/ (root: {repo_root})")
+    httpd.serve_forever()
+
 
     httpd = ThreadingHTTPServer(("0.0.0.0", PORT), GremDeskHandler)
     print(f"GremDesk server running on http://localhost:{PORT}/")

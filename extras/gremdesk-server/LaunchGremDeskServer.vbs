@@ -1,11 +1,10 @@
 Set o = CreateObject("WScript.Shell")
+Set fso = CreateObject("Scripting.FileSystemObject")
 
-' Ensure Python finds its stdlib even though we renamed the exe
-o.Environment("PROCESS")("PYTHONHOME") = "C:\Program Files\Python310"
+thisDir = fso.GetParentFolderName(WScript.ScriptFullName)
+o.CurrentDirectory = thisDir
 
-' Serve from your GremDesk folder
-o.CurrentDirectory = "C:\Gremster\GremDesk\extras\gremdesk-server"
-
-' Launch hidden, but now the process name is GremDeskServer.exe
-' o.Run """C:\Gremster\GremDesk\extras\gremdesk-server\GremDeskServer.exe"" -m http.server 8080", 0
-o.Run """GremDeskServer.exe"" gremdesk_server.py", 0
+rc = o.Run("cmd /c py -3 gremdesk_server.py", 0, True)
+If rc <> 0 Then
+  o.Run "cmd /c python gremdesk_server.py", 0, False
+End If
