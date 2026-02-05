@@ -68,12 +68,12 @@
       },
       "LNK": {
         "showIcons": false,
-        "items": [
-          { "name": "This PC", "url": "gremdesk://explorer", "desc": "Explorer root" },
-          { "name": "Downloads", "url": "gremdesk://explorer/downloads" },
-          { "name": "Documents", "url": "gremdesk://explorer/documents" },
-          { "name": "Pictures", "url": "gremdesk://explorer/pictures" },
-          { "name": "GremDesk Folder", "url": "gremdesk://explorer/gremdesk" }
+        "items": [          
+          { "name": "This PC",        "url": "gremdesk://explorer/shell:MyComputerFolder", "desc": "Explorer root" },
+          { "name": "Program Files",  "url": "gremdesk://explorer/C:%5CProgram%20Files" },
+          { "name": "Downloads",      "url": "gremdesk://explorer/shell:Downloads" },
+          { "name": "Documents",      "url": "gremdesk://explorer/shell:Personal" },
+          { "name": "Desktop",        "url": "gremdesk://explorer/shell:Desktop" }
         ]
       },
       "ADM": {
@@ -81,28 +81,12 @@
         "hidden": "admin",
         "items": [
           {
-            "name": "Local Tools (example)",
-            "icon": "svg/terminal.svg",
-            "items": [
-              { "name": "Search (Everything)", "url": "gremdesk://everything", "icon": "svg/everything_icon.svg" },
-              { "name": "Text Editor", "url": "gremdesk://sublime", "icon": "svg/SublimeText_logo.svg" }
-            ]
-          },
-          {
             "name": "Downloaders (example)",
             "icon": "svg/ytdlp.svg",
             "items": [
               { "name": "YT-DLP: Video + Audio", "url": "gremdesk://ytdlp/video", "icon": "svg/video.svg" },
               { "name": "YT-DLP: Audio Only", "url": "gremdesk://ytdlp/audio", "icon": "svg/audio.svg" },
               { "name": "4chan Downloader", "url": "gremdesk://4chan", "icon": "svg/4chan.svg" }
-            ]
-          },
-          {
-            "name": "Display Presets (example)",
-            "icon": "svg/SetRes.svg",
-            "items": [
-              { "name": "4K Mode", "url": "gremdesk://4k_mode", "icon": "svg/4k.svg" },
-              { "name": "Gaming Mode", "url": "gremdesk://gaming_mode", "icon": "svg/gaming.svg" }
             ]
           }
         ]

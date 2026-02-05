@@ -180,7 +180,7 @@ body {
   color: var(--fg);
   cursor: pointer;
   user-select: none;
-  
+  white-space: nowrap;
 }
 
 .submenu-chevron {
