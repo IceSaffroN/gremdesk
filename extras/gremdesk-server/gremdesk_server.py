@@ -108,11 +108,6 @@ if __name__ == "__main__":
     repo_root = find_repo_root(script_dir)
     os.chdir(repo_root)
 
-    httpd = ThreadingHTTPServer(("0.0.0.0", PORT), GremDeskHandler)
+    httpd = ThreadingHTTPServer(("127.0.0.1", PORT), GremDeskHandler)
     print(f"GremDesk server running on http://localhost:{PORT}/ (root: {repo_root})")
-    httpd.serve_forever()
-
-
-    httpd = ThreadingHTTPServer(("0.0.0.0", PORT), GremDeskHandler)
-    print(f"GremDesk server running on http://localhost:{PORT}/")
     httpd.serve_forever()
