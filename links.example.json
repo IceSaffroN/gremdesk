@@ -17,13 +17,7 @@
           { "name": "Facebook", "url": "https://www.facebook.com/", "icon": "svg/facebook.svg" },
           { "name": "Messenger", "url": "https://www.messenger.com/", "icon": "svg/messenger.svg" },
           { "name": "WhatsApp Web", "url": "https://web.whatsapp.com/", "icon": "svg/whatsapp.svg" },
-          { 
-            "name": "Discord"
-            ,"url": "gremdesk://discord"
-            ,"urlRight": "https://docs.google.com/document/u/0/"
-            ,"icon": "svg/Discord.svg"
-            ,"desc": "Right-click: Desktop"
-          }
+          { "name": "Discord", "url": "gremdesk://discord", "icon": "svg/Discord.svg"}
         ]
       },
       "WRK": {
@@ -54,6 +48,7 @@
         "items": [
           { "name": "ChatGPT", "url": "https://chat.openai.com/", "icon": "svg/ChatGPT.svg" },
           { "name": "Grok", "url": "https://grok.com/", "icon": "svg/Grok_logo.svg" },
+          { "name": "Claude", "url": "https://claude.ai", "icon": "svg/Claude_logo.svg" },
           {
             "name": "Utilities",
             "icon": "svg/gear.svg",
@@ -76,7 +71,7 @@
           { "name": "Desktop",        "url": "gremdesk://explorer/shell:Desktop" }
         ]
       },
-      "ADM": {
+      "ADV": {
         "showIcons": true,
         "hidden": "admin",
         "items": [
@@ -85,8 +80,7 @@
             "icon": "svg/ytdlp.svg",
             "items": [
               { "name": "YT-DLP: Video + Audio", "url": "gremdesk://ytdlp/video", "icon": "svg/video.svg" },
-              { "name": "YT-DLP: Audio Only", "url": "gremdesk://ytdlp/audio", "icon": "svg/audio.svg" },
-              { "name": "4chan Downloader", "url": "gremdesk://4chan", "icon": "svg/4chan.svg" }
+              { "name": "YT-DLP: Audio Only", "url": "gremdesk://ytdlp/audio", "icon": "svg/audio.svg" }
             ]
           }
         ]
