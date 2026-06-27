@@ -9,4 +9,4 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\gremdesk\shell\open]
 
 [HKEY_CLASSES_ROOT\gremdesk\shell\open\command]
-@="\"C:\\Gremster\\Gremdesk\\extras\\gremdesk-protocol\\GremDeskProto.vbs\" \"%1\""
+@="\"C:\\Path\\To\\GremDesk\\extras\\gremdesk-protocol\\gremdesk.protocol.vbs\" \"%1\""
