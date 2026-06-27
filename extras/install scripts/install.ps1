@@ -94,7 +94,7 @@ $doProto   = Prompt-YesNo "Install gremdesk:// protocol handler?" $true
 $doStartup = Prompt-YesNo "Install auto-start for server at login?" $true
 
 if ($doProto) {
-  $protoVbs = Join-Path $repoRoot "extras\gremdesk-protocol\GremDeskProto.vbs"
+  $protoVbs = Join-Path $repoRoot "extras\gremdesk-protocol\gremdesk.protocol.vbs"
   Register-ProtocolPerUser $protoVbs
 }
 

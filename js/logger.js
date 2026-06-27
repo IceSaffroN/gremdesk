@@ -28,16 +28,3 @@ function trackClick(id, meta = {}) {
 
   localStorage.setItem(ANALYTICS_KEY, JSON.stringify(data));
 }
-
-// How to inspect results:
-// Open DevTools → Console → paste:
-
-/*Object.entries(
-  JSON.parse(localStorage.getItem("gremdesk_clicks_v1")) || {}
-).map(([id, v]) => ({
-  id,
-  clicks: v.count,
-  last: v.last ? new Date(v.last).toLocaleString() : "never"
-}));*/
-
-/* uh.. how do we refresh? */
