@@ -1,5 +1,6 @@
-# Local user config
+# Local user configs
 links.json
+extras/gremdesk-protocol/gremdesk.commands.cmd
 
 # Backups and archives
 archive/
