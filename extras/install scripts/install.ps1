@@ -83,6 +83,38 @@ function Install-StartupShortcut([string]$repoRoot) {
   Write-Host "Installed startup shortcut: $shortcutPath"
 }
 
+function Test-GremDeskServerRunning() {
+  $client = $null
+  try {
+    $client = New-Object System.Net.Sockets.TcpClient
+    $connect = $client.BeginConnect("127.0.0.1", 8080, $null, $null)
+    if (-not $connect.AsyncWaitHandle.WaitOne(500, $false)) { return $false }
+    $client.EndConnect($connect)
+    return $true
+  } catch {
+    return $false
+  } finally {
+    if ($client) { $client.Close() }
+  }
+}
+
+function Start-GremDeskServer([string]$repoRoot) {
+  if (Test-GremDeskServerRunning) {
+    Write-Host "GremDesk server already appears to be running."
+    Write-Host "Open http://localhost:8080/ in your browser."
+    return
+  }
+
+  $launcher = Join-Path $repoRoot "extras\gremdesk-server\LaunchGremDeskServer.vbs"
+  if (!(Test-Path -LiteralPath $launcher)) { throw "Missing server launcher: $launcher" }
+
+  $wscript = Join-Path $env:WINDIR "System32\wscript.exe"
+  Start-Process -FilePath $wscript -ArgumentList "`"$launcher`"" -WorkingDirectory $repoRoot -WindowStyle Hidden
+
+  Write-Host "Started GremDesk server."
+  Write-Host "Open http://localhost:8080/ in your browser."
+}
+
 # ---- main ----
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -101,6 +133,8 @@ if ($doProto) {
 if ($doStartup) {
   Install-StartupShortcut $repoRoot
 }
+
+Start-GremDeskServer $repoRoot
 
 Write-Host ""
 Write-Host "Done."

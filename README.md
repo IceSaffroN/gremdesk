@@ -41,7 +41,7 @@ A lightweight, local-first start page for fast navigation and launching personal
 
 1) Download or clone this repo.
 2) Extract it to a folder on your machine, for example `C:\gremdesk`.
-3) Start the local server using one of the options below.
+3) Install Gremdesk Server using one of the options below
 4) Open GremDesk in your browser at `http://localhost:8080/`.
 5) Once you are happy everything is working, rename `links.example.json` to `links.json` and customize your links.
 6) Optional: set GremDesk as your browser home page or new tab page.
@@ -57,6 +57,7 @@ The installer can:
 
 - Register the optional `gremdesk://` protocol handler
 - Add a startup shortcut so the local server starts when you log in
+- Start the local server immediately
 
 From the root GremDesk folder, run:
 
@@ -65,6 +66,12 @@ powershell -ExecutionPolicy Bypass -File ".\extras\install scripts\install.ps1"
 ```
 
 The installer will ask before enabling optional components.
+
+After the installer starts the server, open GremDesk in your browser:
+
+```text
+http://localhost:8080/
+```
 
 If you enable auto-start, GremDesk creates a shortcut named `GremDesk Server.lnk` in your Windows Startup folder:
 
