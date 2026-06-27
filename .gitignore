@@ -2,6 +2,10 @@
 links.json
 extras/gremdesk-protocol/gremdesk.commands.cmd
 
+# Personal project notes
+DEVELOPMENT_LOG.md
+RELEASE_CHECKLIST.md
+
 # Backups and archives
 archive/
 *.bak

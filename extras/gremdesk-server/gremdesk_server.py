@@ -65,7 +65,7 @@ class GremDeskHandler(SimpleHTTPRequestHandler):
         elif any(path.lower().endswith(ext) for ext in (
             ".css", ".js", ".svg", ".webp", ".png", ".jpg", ".jpeg", ".gif"
         )):
-            self.send_header("Cache-Control", "public, max-age=3600")
+            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
 
         # Don't aggressively cache HTML (so edits show up)
         elif path == "/" or path.lower().endswith(".html"):
