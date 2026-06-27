@@ -20,6 +20,44 @@ function buildTopbar(TOP) {
   }
 
   topbar.append(left, right);
+
+  let activeMenu = null;
+
+  document.querySelectorAll('.menu').forEach(menu => {
+      let timer;
+
+      menu.addEventListener('mouseenter', () => {
+
+          clearTimeout(timer);
+
+          // If another menu is open, close it immediately.
+          if (activeMenu && activeMenu !== menu) {
+              clearTimeout(activeMenu._timer);
+              activeMenu.classList.remove('is-open');
+          }
+
+          menu.classList.add('is-open');
+          activeMenu = menu;
+          menu._timer = timer;
+      });
+
+      menu.addEventListener('mouseleave', () => {
+
+          timer = setTimeout(() => {
+
+              menu.classList.remove('is-open');
+
+              if (activeMenu === menu) {
+                  activeMenu = null;
+              }
+
+          }, 50);
+
+          menu._timer = timer;
+      });
+
+  });
+
 }
 
 // Create dropdown
@@ -318,10 +356,4 @@ document.addEventListener("keyup", e => {
     ctrlHeld = false;
     document.body.classList.remove("ctrl-held");
   }
-});
-
-// Safety: if window loses focus, reset
-window.addEventListener("blur", () => {
-  ctrlHeld = false;
-  document.body.classList.remove("ctrl-held");
 });
