@@ -39,29 +39,47 @@ A lightweight, local-first start page for fast navigation and launching personal
 
 ## Installation
 
-1) Download all the required files from the Repo
-2) Extract it to a folder on your machine (ie: C:\gremdesk)
-3) Setup your local server ( see expanded notes below )
-4) Open GremDesk and test in your browser ( eg via: http://localhost:8080/ )
-5) Set your browser to use GremDesk as a new tab or home page
-   - You will need a browser extension to default onto GremDesk each new tab
-   - GremDesk ships with a minimal local new tab extension for Chrome (notes below)
-6) Rename links.example.json to links.json and customize it
-7) Stop here if you do not need protocol support ( otherwise see expanded notes below )
+1) Download or clone this repo.
+2) Extract it to a folder on your machine, for example `C:\gremdesk`.
+3) Start the local server using one of the options below.
+4) Open GremDesk in your browser at `http://localhost:8080/`.
+5) Once you are happy everything is working, rename `links.example.json` to `links.json` and customize your links.
+6) Optional: set GremDesk as your browser home page or new tab page.
+7) Optional: enable `gremdesk://` protocol support if you want GremDesk to launch local commands.
 
 ---
 
-## Local Server Quick Install (Recommended)
+## Local Server Quick Install
 
-You can use the install.ps1 to do a simplified installation. It can register the protocol for you for running scripts from GremDesk. In addition it can setup the GremDesk server to run at startup silently.
-To install via the PowerShell installer, run:
-`powershell -ExecutionPolicy Bypass -File .\extras\install scripts\install.ps1`
-in your root GremDesk folder.
-Then navigate to: `C:\Users\[YourUsername]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`
+GremDesk includes a PowerShell installer for common local setup.
 
-GremDesk auto-starts the local server at login by creating a shortcut in your Startup folder.
-To remove it later, delete GremDesk Server.lnk from: 
-`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
+The installer can:
+
+- Register the optional `gremdesk://` protocol handler
+- Add a startup shortcut so the local server starts when you log in
+
+From the root GremDesk folder, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File ".\extras\install scripts\install.ps1"
+```
+
+The installer will ask before enabling optional components.
+
+If you enable auto-start, GremDesk creates a shortcut named `GremDesk Server.lnk` in your Windows Startup folder:
+
+```text
+%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
+```
+
+To remove installed components later, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File ".\extras\install scripts\uninstall.ps1"
+```
+
+You can also remove auto-start manually by deleting `GremDesk Server.lnk` from the Startup folder.
+
 
 ---
 
@@ -70,7 +88,7 @@ Coming in a future release.
 
 ---
 
-# Setting up a local server (Full Description)
+## Setting up a local server (Full Description)
 
 ## Basic Python Local Server Setup
 1) Install Python 3.12.X
@@ -88,7 +106,7 @@ Coming in a future release.
 6) Actions Tab > New... > Program: `wscript.exe`; Argument: `"C:\[path to your gremdesk]\extras\gremdesk-server\LaunchGremDeskServer.vbs"`
 7) Settings > Check `Run task as soon as possible after a scheduled start is missed`
 
-# Install GremDesk Newtab (Chrome Only; Optional)
+## Install GremDesk Newtab (Chrome Only; Optional)
 - Replaces Chrome’s New Tab page and instantly redirects to your local GremDesk server.
 - Feel free to ignore these instructions and instead just download a new tab extension from the extension store.
 1) Open Chrome and go to: `chrome://extensions`
@@ -96,10 +114,13 @@ Coming in a future release.
 3) Click Load unpacked
 4) Select this folder: `...\gremdesk\extras\gremdesk-newtab`
 
-# Register the GremDesk protocol (Optional)
-*This is for if you want to be able to call programs etc from GremDesk*
+## Register the GremDesk protocol (Optional)
 
-# Quick troubleshooting
+The PowerShell installer can register `gremdesk://` for you.
+
+Only enable this if you want GremDesk links to launch local commands on your computer.
+
+## Quick troubleshooting
 - Blank page / config not loading: confirm you’re using `http://localhost:...` (not `file://...`)
 - Port already in use: change `8080` to something else (e.g. `8090`)
 - Firewall prompt: allow local network access (or choose "Private networks" only)
