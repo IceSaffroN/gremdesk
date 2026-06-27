@@ -63,12 +63,12 @@
       },
       "LNK": {
         "showIcons": false,
-        "items": [          
-          { "name": "This PC",        "url": "gremdesk://explorer/shell:MyComputerFolder", "desc": "Explorer root" },
-          { "name": "Program Files",  "url": "gremdesk://explorer/C:%5CProgram%20Files" },
-          { "name": "Downloads",      "url": "gremdesk://explorer/shell:Downloads" },
-          { "name": "Documents",      "url": "gremdesk://explorer/shell:Personal" },
-          { "name": "Desktop",        "url": "gremdesk://explorer/shell:Desktop" }
+        "items": [
+          { "name": "This PC",   "url": "gremdesk://thispc", "desc": "Explorer root" },
+          { "name": "Downloads", "url": "gremdesk://downloadsfolder" },
+          { "name": "Documents", "url": "gremdesk://documentsfolder" },
+          { "name": "Desktop",   "url": "gremdesk://desktopfolder" },
+          { "name": "Projects",  "url": "gremdesk://projectfolder" }
         ]
       },
       "ADV": {
