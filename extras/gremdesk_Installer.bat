@@ -26,7 +26,7 @@ goto menu
 :install
 echo.
 echo Running install...
-powershell -ExecutionPolicy Bypass -File ".\extras\install scripts\install.ps1"
+powershell -ExecutionPolicy Bypass -File "%~dp0install scripts\install.ps1"
 echo.
 pause
 goto end
@@ -34,7 +34,7 @@ goto end
 :uninstall
 echo.
 echo Running uninstall...
-powershell -ExecutionPolicy Bypass -File ".\extras\install scripts\uninstall.ps1"
+powershell -ExecutionPolicy Bypass -File "%~dp0install scripts\uninstall.ps1"
 echo.
 pause
 goto end

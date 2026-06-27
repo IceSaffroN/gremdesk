@@ -59,7 +59,13 @@ The installer can:
 - Add a startup shortcut so the local server starts when you log in
 - Start the local server immediately
 
-From the root GremDesk folder, run:
+To use the menu installer, double-click:
+
+```text
+extras\gremdesk_Installer.bat
+```
+
+Or, from the root GremDesk folder, run the PowerShell installer directly:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File ".\extras\install scripts\install.ps1"

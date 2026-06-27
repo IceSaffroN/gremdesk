@@ -137,8 +137,20 @@ if ($doStartup) {
 Start-GremDeskServer $repoRoot
 
 Write-Host ""
-Write-Host "Done."
+Write-Host "GremDesk setup complete."
 Write-Host ""
-Write-Host "FYI: If you want GremDesk to launch yt-dlp tools, you'll need yt-dlp installed separately."
-Write-Host " - Install guide: https://github.com/yt-dlp/yt-dlp#installation"
-Write-Host " - Windows options search: https://www.google.com/search?q=yt-dlp+windows+install"
+Write-Host "Next step:"
+Write-Host "Open http://localhost:8080/ in your browser."
+Write-Host ""
+Write-Host "Optional notes:"
+if ($doStartup) {
+  Write-Host " - Auto-start is enabled, so GremDesk will start when you log in."
+} else {
+  Write-Host " - Auto-start was not enabled. Run this installer again if you want it later."
+}
+if ($doProto) {
+  Write-Host " - The gremdesk:// protocol is enabled for local command links."
+} else {
+  Write-Host " - The gremdesk:// protocol was not enabled."
+}
+Write-Host " - yt-dlp links only work if yt-dlp is installed separately."
