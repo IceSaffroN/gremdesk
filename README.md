@@ -12,7 +12,7 @@ A lightweight, local-first start page for fast navigation and launching personal
   - Local protocol actions (`gremdesk://...`)
   - JavaScript actions (`action`)
   - Copy-to-clipboard items (`data`)
-- Random wallpaper loading (with optional admin mode wallpapers)
+- Random wallpapers on load
 - Minimal by design: No accounts, no telemetry, no cloud dependencies
 
 ---
@@ -73,6 +73,8 @@ powershell -ExecutionPolicy Bypass -File ".\extras\install scripts\install.ps1"
 
 The installer will ask before enabling optional components.
 
+Current installer limitation: the installer can skip server auto-start at login, but it still starts the local GremDesk server once at the end. If you only want to install the `gremdesk://` protocol handler on a Windows PC while hosting GremDesk elsewhere, this is harmless but unnecessary. A future installer update should make local server startup optional.
+
 After the installer starts the server, open GremDesk in your browser:
 
 ```text
@@ -132,6 +134,8 @@ Coming in a future release.
 The PowerShell installer can register `gremdesk://` for you.
 
 Only enable this if you want GremDesk links to launch local commands on your computer.
+
+If GremDesk is hosted on another machine, install the protocol handler on the Windows PC where you want the commands to run. The website can be remote, but `gremdesk://` actions are handled by the computer running the browser.
 
 ## Quick troubleshooting
 - Blank page / config not loading: confirm you’re using `http://localhost:...` (not `file://...`)
