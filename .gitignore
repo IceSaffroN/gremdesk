@@ -26,3 +26,6 @@ wallpapers/*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Grok Bullshit
+mcps/*

@@ -29,3 +29,5 @@ projectfolder = explorer.exe "%USERPROFILE%\Documents"
 # These examples expect yt-dlp to be installed separately.
 ytdlp/video = cmd /k "yt-dlp ""{{CLIP}}"""
 ytdlp/audio = cmd /k "yt-dlp -x --audio-format mp3 ""{{CLIP}}"""
+# Update the script path if GremDesk is installed somewhere else.
+ytdlp/random = cmd /k "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ""C:\gremdesk\extras\gremdesk-protocol\ytdlp-random.ps1"" -Url ""{{CLIP}}"""

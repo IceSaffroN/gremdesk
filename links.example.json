@@ -80,7 +80,8 @@
             "icon": "svg/ytdlp.svg",
             "items": [
               { "name": "YT-DLP: Video + Audio", "url": "gremdesk://ytdlp/video", "icon": "svg/video.svg" },
-              { "name": "YT-DLP: Audio Only", "url": "gremdesk://ytdlp/audio", "icon": "svg/audio.svg" }
+              { "name": "YT-DLP: Audio Only", "url": "gremdesk://ytdlp/audio", "icon": "svg/audio.svg" },
+              { "name": "YT-DLP: Random Filename", "url": "gremdesk://ytdlp/random", "icon": "svg/video.svg" }
             ]
           }
         ]
